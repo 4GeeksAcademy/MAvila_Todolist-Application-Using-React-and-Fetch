@@ -70,7 +70,7 @@ function Home() {
 
 	// Function to update server with the current list of todos
 	const updateTodoList = (updatedTodos) => {
-		fetch("https://playground.4geeks.com/apis/fake/todos/user/alesanchezr", {
+		fetch("https://playground.4geeks.com/apis/fake/todos/user/mateo", {
 			method: "PUT",
 			body: JSON.stringify(updatedTodos),
 			headers: {
@@ -88,9 +88,10 @@ function Home() {
 
 	// Effect hook that uses fetch
 	useEffect(() => {
-		fetch("https://playground.4geeks.com/apis/fake/todos/user/alesanchezr")
+		fetch("https://playground.4geeks.com/apis/fake/todos/user/mateo")
 			.then((resp) => resp.json())
 			.then((data) => {
+				console.log("API Response:", data);
 				setTodos(data);
 			})
 			.catch((error) => {
@@ -100,7 +101,7 @@ function Home() {
 
 	// Event handler for deleting all tasks
 	const deleteAllTasks = () => {
-		fetch("https://playground.4geeks.com/apis/fake/todos/user/alesanchezr", {
+		fetch("https://playground.4geeks.com/apis/fake/todos/user/mateo", {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json",
@@ -116,7 +117,7 @@ function Home() {
 	};
 
 	// Function to list the number of assignments left
-	const assignmentsLeft = item.filter((item) => !item.is_done).length;
+	const assignmentsLeft = todos.filter((item) => !item.is_done).length;
 
 	return (
 		<form className="container d-flex flex-column align-items-center position-absolute top-50 start-50 translate-middle">
