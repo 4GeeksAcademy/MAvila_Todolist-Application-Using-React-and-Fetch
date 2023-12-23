@@ -116,7 +116,7 @@ function Home() {
 	};
 
 	// Function to list the number of assignments left
-	const assignmentsLeft = todos.filter((todo) => !todo.is_done).length;
+	const assignmentsLeft = item.filter((item) => !item.is_done).length;
 
 	return (
 		<form className="container d-flex flex-column align-items-center position-absolute top-50 start-50 translate-middle">
